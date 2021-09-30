@@ -3,11 +3,11 @@ import random
 
 class TensorSim:
     """
-    Simulates predictions for a given dataset at a given accuracy threshold
+    Simulates predictions for a given dataset at a simulated accuracy threshold
     """
 
     def __init__(self, df, data_cols, target_cols, sim_accuracy=None,
-                 shuffle=False):
+                 sim_latency=300, shuffle=False):
 
         if shuffle:
             self.df = df.sample(frac=1)
@@ -17,6 +17,7 @@ class TensorSim:
         self.data_cols = data_cols
         self.target_cols = target_cols
         self.sim_accuracy = sim_accuracy
+        self.sim_latency = sim_latency
         self.shuffle = shuffle
 
         self.idx = 0
@@ -26,6 +27,7 @@ class TensorSim:
         print('\tData columns:', ', '.join(self.data_cols))
         print('\tTarget columns:', ', '.join(self.target_cols))
         print(f'\tSimulated accuracy: {100*self.sim_accuracy}%')
+        print(f'\tSimulated latency: {self.sim_latency}ms' )
 
     def __iter__(self):
         return self

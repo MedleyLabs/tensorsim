@@ -2,7 +2,7 @@ import pandas as pd
 
 from fastapi import FastAPI
 
-from sim import TensorSim
+from tensorsim.sim import TensorSim
 
 
 app = FastAPI()
